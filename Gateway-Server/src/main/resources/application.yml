@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: EmployeeModule
+        uri: http://localhost:8081/
+        predicates:
+        - Path=/employee/**
+      - id: PersonModule
+        uri: http://localhost:8082/
+        predicates:
+        - Path=/person/**
+        
+#you can even do this configuration in java config file also        
